@@ -1,0 +1,47 @@
+---
+- name: Install monit package
+  sudo: yes
+  apt:
+    name: monit
+    state: present
+
+- name: Create includes folder
+  sudo: yes
+  file:
+    path: "{{monit_includes}}"
+    state: directory
+    mode: 0600
+    owner: "root"
+    group: "root"
+
+- name: Setup monitrc
+  sudo: yes
+  template:
+    src: ../templates/monitrc.j2
+    dest: "{{monitrc_conf}}"
+    owner: "root"
+    group: "root"
+    mode: 0700
+  notify: Restart monit
+
+- name: Setup mail alerts
+  sudo: yes
+  template:
+    src: ../templates/mail.j2
+    dest: "{{monit_includes}}/mail"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  notify: Restart monit
+
+- name: Enabling custom monit services 
+  sudo: yes
+  template:
+    src: monitor.j2
+    dest: "{{monit_includes}}/{{item.name}}"
+    owner: "root"
+    group: "root"
+  with_items: monit_services
+  notify: Restart monit
+
+

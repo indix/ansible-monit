@@ -1,0 +1,21 @@
+# {{ ansible_managed }}
+
+set daemon {{ monit_cycle }}
+set logfile {{ monit_log_destination }}
+set statefile {{ monit_state_file }}
+set idfile {{ monit_id_file }}
+{% if monit_eventqueue_dir is defined %}
+set eventqueue
+  basedir {{ monit_eventqueue_dir | default('/var/lib/monit/events') }}
+  slots {{ monit_eventqueue_slots | default(100) }}
+{% endif %}
+include {{monit_includes}}/*
+set httpd port 2812
+  {% if monit_only_localhost is defined %}
+  use address localhost  # only accept connection from localhost
+  {% endif %}
+  allow localhost        # allow localhost to connect to the server and
+  allow admin:monit
+  {% if monit_cidr_block is defined %}
+  allow {{monit_cidr_block}}
+  {% endif %}

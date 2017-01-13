@@ -1,0 +1,14 @@
+---
+dependencies:
+  - role: postfix 
+    postfix_install: "{{monit_postfix_install}}"
+    postfix_hostname: "{{monit_postfix_hostname}}"
+    postfix_mailname: "{{monit_postfix_mailname}}"
+    postfix_aliases: "{{monit_postfix_aliases}}"
+    postfix_relayhost: "{{monit_postfix_relayhost}}"
+    postfix_relayhost_port: "{{monit_postfix_relayhost_port}}"
+    postfix_relaytls: "{{monit_postfix_relaytls}}"
+    postfix_sasl_user: "{{monit_postfix_sasl_user}}"
+    postfix_sasl_password: "{{monit_postfix_sasl_password}}"
+    postfix_inet_interfaces: "{{monit_postfix_inet_interfaces}}"
+    postfix_debconf_selections: "{{monit_postfix_debconf_selections}}"

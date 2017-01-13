@@ -1,0 +1,16 @@
+# {{ ansible_managed }}
+
+set mailserver {{monit_mailserver_host}} port {{monit_mailserver_port}}
+
+set alert {{monit_alert_address}}{% if monit_dont_alert_events is defined %} but not on { {{monit_dont_alert_events|join(", ")}} } {% endif %}
+
+
+{% if monit_alert_mail_format is defined -%}
+set mail-format {
+{% for key in ['from', 'reply-to', 'subject', 'message'] -%}
+{% if monit_alert_mail_format[key] is defined %}
+  {{key}}: {{monit_alert_mail_format[key]}}
+{% endif %}
+{% endfor -%}
+}
+{% endif -%}
