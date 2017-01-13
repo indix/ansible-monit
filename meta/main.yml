@@ -1,6 +1,12 @@
 ---
+galaxy_info:
+  author: "Naween"
+  min_ansible_version: 1.9
+  platforms:
+   - name: Ubuntu
+
 dependencies:
-  - role: postfix 
+  - role: postfix
     postfix_install: "{{monit_postfix_install}}"
     postfix_hostname: "{{monit_postfix_hostname}}"
     postfix_mailname: "{{monit_postfix_mailname}}"
