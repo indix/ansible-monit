@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   author: "Naween"
+  license: MIT
   min_ansible_version: 1.9
   platforms:
    - name: Ubuntu
