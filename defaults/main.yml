@@ -13,7 +13,7 @@ monit_postfix_relayhost: false
 monit_postfix_relayhost_port: 587
 monit_postfix_relaytls: false
 monit_postfix_sasl_user: "postmaster@{{ansible_domain}}"
-monit_postfix_sasl_password: 'k8+haga4@#pR'
+monit_postfix_sasl_password: 'postfix'
 monit_postfix_inet_interfaces: all
 monit_postfix_debconf_selections:
  - name: postfix

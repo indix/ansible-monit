@@ -1,0 +1,7 @@
+# test for openvpn
+---
+- hosts: localhost
+  connection: local
+  sudo: true
+  roles:
+    - ../../
