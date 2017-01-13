@@ -1,5 +1,7 @@
 ## README
 
+[![BuildStatus](https://travis-ci.org/indix/ansible-monit.svg?branch=master)](https://travis-ci.org/indix/ansible-monit)
+
 Easy proactive monitoring of unix system processes. Monit reads its config from monitrc file.
 Some important things are:
 * Daemon cycle - when monit is running in daemon mode ( usually ) it will get up after sleeping for *t* seconds
@@ -18,5 +20,3 @@ Some useful commands:
 * monit stop <process_name> -async
 * monit status
 * monit start all
-
-
