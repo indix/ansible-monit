@@ -18,7 +18,7 @@ before_install:
 install:
   # Install Ansible.
   - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install --no-binary ansible ansible; else pip install --no-binary ansible ansible==$ANSIBLE_VERSION; fi
-  - echo -e '[defaults]\nroles_path = ../ > ansible.cfg
+  - echo -e '[defaults]\nroles_path = ../' > ansible.cfg
   - ansible-galaxy install indix.postfix
 
 script:
