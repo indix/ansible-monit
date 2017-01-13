@@ -7,7 +7,7 @@ galaxy_info:
    - name: Ubuntu
 
 dependencies:
-  - role: postfix
+  - role: indix.postfix
     postfix_install: "{{monit_postfix_install}}"
     postfix_hostname: "{{monit_postfix_hostname}}"
     postfix_mailname: "{{monit_postfix_mailname}}"
