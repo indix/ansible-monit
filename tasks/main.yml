@@ -34,14 +34,12 @@
     mode: 0644
   notify: Restart monit
 
-- name: Enabling custom monit services 
+- name: Enabling custom monit services
   sudo: yes
   template:
     src: monitor.j2
     dest: "{{monit_includes}}/{{item.name}}"
     owner: "root"
     group: "root"
-  with_items: monit_services
+  with_items: "monit_services"
   notify: Restart monit
-
-
