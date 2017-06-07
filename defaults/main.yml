@@ -55,7 +55,7 @@ monit_alert_address: naween@indix.com
 monit_alert_mail_format:
   from: devops@indix.com
   reply-to: naween@indix.com
-  subject: 'Monit - Process crashed'
+  subject: 'Monit alert for $SERVICE'
   message: |+
     $EVENT Service $SERVICE
                Date:        $DATE
